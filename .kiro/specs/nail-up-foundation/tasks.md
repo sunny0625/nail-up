@@ -32,7 +32,7 @@ Scope guardrails baked into every task:
   - Acceptance check: run `npm install` then `npm run dev`; observe the dev server starts with no errors and `/` responds. Run `git status` to confirm `.git/`, `.kiro/`, `docs/`, and prior `README.md` content are intact.
   - _Requirements: 1.1, 1.2, 1.3_
 
-- [ ] 2. Lock down TypeScript, path aliases, and Tailwind v4 CSS-first setup
+- [x] 2. Lock down TypeScript, path aliases, and Tailwind v4 CSS-first setup
   - [x] 2.1 Configure TypeScript strict mode + `@/*` path aliases
     - In `tsconfig.json` set `"strict": true` and define `"paths": { "@/*": ["./*"] }` resolving to the project root for app and tests.
     - Acceptance check: run `npx tsc --noEmit` on the clean project; observe zero type errors and a clean exit. Add a throwaway file importing via `@/` to confirm the alias resolves, then remove it.
@@ -42,17 +42,17 @@ Scope guardrails baked into every task:
     - Acceptance check: delete any generated `tailwind.config.*` if present; run `npm run dev` and confirm a Tailwind utility class (e.g. `bg-black`) applies to rendered output in the browser.
     - _Requirements: 1.9_
 
-- [ ] 3. Configure ESLint flat config, package scripts, env, and gitignore
-  - [ ] 3.1 ESLint 9+ flat config with `eslint-config-next`
+- [x] 3. Configure ESLint flat config, package scripts, env, and gitignore
+  - [x] 3.1 ESLint 9+ flat config with `eslint-config-next`
     - Ensure `eslint.config.mjs` (flat config) extends `eslint-config-next`.
     - Acceptance check: run `npx eslint .`; observe zero violations and clean exit on the clean project. Introduce a deliberate violation, confirm non-zero exit, then revert.
     - _Requirements: 1.10, 6.3, 6.4_
-  - [ ] 3.2 Define `package.json` scripts with pinned exact versions
+  - [x] 3.2 Define `package.json` scripts with pinned exact versions
     - Add scripts: `dev`, `build` (`next build`), `start` (`next start`), `lint` (`eslint .` — NOT `next lint`), `typecheck` (`tsc --noEmit`), `test` (`vitest --run`).
     - Pin EVERY dependency and devDependency to an exact version — remove all `^`/`~`/range specifiers; verify versions against current stable at install time.
     - Acceptance check: run each script (`npm run lint`, `npm run typecheck`, `npm run build`) and confirm they execute; grep `package.json` to confirm no `^`/`~` remain and `lint` is exactly `eslint .`.
     - _Requirements: 1.6, 1.7, 1.8, 1.10, 5.9_
-  - [ ] 3.3 Create `.env.example` (placeholders only) and merge `.gitignore`
+  - [x] 3.3 Create `.env.example` (placeholders only) and merge `.gitignore`
     - Create `.env.example` with placeholder keys ONLY (no secrets): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` (server-only comment), `RESEND_API_KEY` (server-only comment), `EMAIL_FROM`, `EMAIL_BUSINESS_NOTIFICATION`, `NEXT_PUBLIC_SITE_URL`.
     - Ensure `.gitignore` excludes `.next/`, `out/`, `build/`, `node_modules/`, `.env`, `.env.local`, coverage, and OS/editor cruft — while RETAINING `.env.example`.
     - Acceptance check: run `git check-ignore -v .env .env.local .next node_modules` (expect ignored) and `git check-ignore .env.example` (expect NOT ignored). Confirm `.env.example` contains no real values.
