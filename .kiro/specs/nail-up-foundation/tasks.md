@@ -102,7 +102,7 @@ Scope guardrails baked into every task:
   - Acceptance check: run `npm run dev`; view page source and confirm the font CSS variables are present on `<html>`/`<body>`, globals are loaded, and no shell markup is emitted by the root layout. Run `npm run typecheck`.
   - _Requirements: 2.1, 3.3, 4.1_
 
-- [ ] 9. Create the `(public)` route group layout and admin boundary separation
+- [x] 9. Create the `(public)` route group layout and admin boundary separation
   - Create `app/(public)/layout.tsx` that composes the Application_Shell: `AnnouncementBar` + `Header` + a single `<main>` landmark wrapping children + `Footer`. It wraps PUBLIC routes only (no URL segment added).
   - Establish the admin boundary by convention: document that future admin routes live OUTSIDE `(public)` (e.g. `app/admin/` with its own layout) so the shell never renders there. Implement NO admin route or logic.
   - Acceptance check: after shell components exist (task 11), load `/` and confirm the shell renders; confirm exactly one `<main>` exists. Run `npm run typecheck`.
@@ -151,12 +151,12 @@ Scope guardrails baked into every task:
 - [ ] 12. Checkpoint — shell renders end-to-end
   - Ensure all tests pass, ask the user if questions arise. Load `/` via `npm run dev` and confirm AnnouncementBar + Header (one `<header>`, one `<nav>`) + one `<main>` + Footer all render from Business_Config.
 
-- [ ] 13. Implement public route placeholders and per-route metadata
-  - [ ] 13.1 PlaceholderPage component
+- [x] 13. Implement public route placeholders and per-route metadata
+  - [x] 13.1 PlaceholderPage component
     - `components/layout/placeholder-page.tsx` (Server) renders an editorial-styled heading + a short line clearly marking the page as a placeholder / coming soon, inside a `PageContainer`. Uses only confirmed copy/tokens; follows the Unconfirmed_Fact pattern if a fact would surface.
     - Acceptance check: render it and confirm visible "coming soon"/placeholder text; no fabricated facts. Run `npm run typecheck`.
     - _Requirements: 4.17_
-  - [ ] 13.2 Ten public route pages with metadata
+  - [x] 13.2 Ten public route pages with metadata
     - Create `app/(public)/page.tsx` (home — may render light editorial landing using confirmed headline "Your nails. Your canvas.", supporting statement, primary + secondary CTAs) and deferred pages `services`, `lookbook`, `love-notes`, `your-art`, `about`, `book`, `contact`, `privacy`, `terms` each rendering `PlaceholderPage`. Set per-route `metadata` (title/description) from confirmed copy.
     - Acceptance check: `npm run dev`; request all ten routes and confirm each resolves without 404; deferred pages clearly show coming-soon; `/` shows confirmed editorial copy; view-source confirms per-route titles.
     - _Requirements: 4.16, 4.17_
