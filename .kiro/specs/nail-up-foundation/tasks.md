@@ -108,7 +108,7 @@ Scope guardrails baked into every task:
   - Acceptance check: after shell components exist (task 11), load `/` and confirm the shell renders; confirm exactly one `<main>` exists. Run `npm run typecheck`.
   - _Requirements: 2.11, 4.1, 5.6_
 
-- [ ] 10. Implement the PageContainer component
+- [x] 10. Implement the PageContainer component
   - Create `components/layout/page-container.tsx` (Server Component) applying `--container-*` width tokens via a `width` variant prop; source all width/spacing/layout values from Design_Tokens (no hard-coded literals).
   - Acceptance check: use it to wrap sample content; confirm in devtools the rendered element carries a container-width token class/variable (not a literal width). Run `npm run typecheck`.
   - _Requirements: 4.14_
