@@ -97,7 +97,7 @@ Scope guardrails baked into every task:
   - Acceptance check: run `npm run typecheck`; confirm the module imports cleanly and values match product.md character-for-character (Instagram URL has no query/tracking params).
   - _Requirements: 4.13, 1.15_
 
-- [ ] 8. Implement the shell-free Root_Layout (`app/layout.tsx`)
+- [x] 8. Implement the shell-free Root_Layout (`app/layout.tsx`)
   - Render only `<html>`/`<body>`, wire `next/font` serif + sans families to the `--font-headline`/`--font-body` CSS variables, import `app/globals.css`, and set base `metadata`. NO announcement bar / nav / footer here (shell-free so it applies to future admin routes too).
   - Acceptance check: run `npm run dev`; view page source and confirm the font CSS variables are present on `<html>`/`<body>`, globals are loaded, and no shell markup is emitted by the root layout. Run `npm run typecheck`.
   - _Requirements: 2.1, 3.3, 4.1_
