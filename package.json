@@ -17,13 +17,17 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.5",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
     "@types/node": "20.19.43",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.6",
+    "jsdom": "31.0.1",
     "tailwindcss": "4.3.5",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
   },
   "//overrides": "Forces minimatch 11.0.8 under @typescript-eslint/typescript-estree only. typescript-eslint 8.72.2 (latest at 2026-11-05) depends on minimatch ^10.2.2, which is affected by GHSA-g3hv-75wg-m249 (DoS via globparts amplification, fixed in minimatch 11.0.1). Dev-only lint dependency. Reconsider and REMOVE this override once typescript-eslint ships a release depending on a patched minimatch; check with `npm ls minimatch` and `npm audit` after removal.",
   "overrides": {
