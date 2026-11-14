@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * NAIL UP — EDITORIAL BEAUTY EXPERIENCE (design tokens)
+ *
+ * Every meaningful design value lives in the @theme block below and is consumed
+ * through utilities or var(--token). Outside this block, only structural
+ * primitives (0, 0s, 100%, 1px-style basics) may appear as literals.
+ *
+ * `static` makes Tailwind emit every token as a CSS variable even when no
+ * utility uses it yet, so var(--color-espresso) always resolves.
+ */
+@theme static {
+  /* ── Brand palette: exactly eight colours ─────────────────────────────── */
+  --color-ivory: #f7f1e8; /* warm ivory: page canvas */
+  --color-cream: #fbf6ef; /* milky cream: raised surfaces */
+  --color-rose: #c99aa0; /* dusty rose: accent */
+  --color-blush: #e8d2d1; /* muted blush: soft accent */
+  --color-espresso: #2c211c; /* deep espresso: text, dark surfaces */
+  --color-plum: #6b4a63; /* soft plum: secondary accent */
+  --color-champagne: #e6d4ad; /* champagne: highlight */
+  --color-chrome: #c7c9cc; /* subtle chrome / silver: metallic highlight */
+
+  /* ── Semantic colours: not part of the brand palette ──────────────────── */
+  --color-success: #3f7d58;
+  --color-error: #a63d4a;
+  --color-warning: #b5832e;
+  --color-focus: #6b4a63; /* keyboard focus ring */
+
+  /* ── Typography ───────────────────────────────────────────────────────── */
+  /* --font-headline / --font-body are supplied by next/font in the root layout.
+     The fallbacks inside var() keep the stacks valid until those load. */
+  --font-serif:
+    var(--font-headline, Georgia), "Times New Roman", serif; /* headlines */
+  --font-sans:
+    var(--font-body, system-ui), ui-sans-serif, "Segoe UI", sans-serif; /* body */
+  --tracking-label: 0.18em; /* uppercase editorial label letter-spacing */
+
+  /* ── Spacing scale (strictly increasing) ──────────────────────────────── */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+
+  /* ── Container widths ─────────────────────────────────────────────────── */
+  --container-narrow: 48rem; /* reading column */
+  --container-content: 72rem; /* standard page content */
+  --container-wide: 90rem; /* editorial wide / hero */
+
+  /* ── Borders, radii, shadows ──────────────────────────────────────────── */
+  --border-width-hairline: 1px;
+  /* currentColor keeps the hairline in step with the text colour and avoids a
+     ninth colour token. */
+  --border-hairline: var(--border-width-hairline) solid
+    color-mix(in srgb, currentColor 20%, transparent);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem; /* restrained: avoid heavily rounded cards */
+  --shadow-soft: 0 12px 40px -12px
+    color-mix(in srgb, var(--color-espresso) 18%, transparent);
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --motion-duration: 200ms;
+  --motion-ease: ease-out;
+
+  /* ── Buttons ──────────────────────────────────────────────────────────── */
+  --button-padding-block: var(--spacing-sm);
+  --button-padding-inline: var(--spacing-lg);
+  /* primary: solid espresso */
+  --button-primary-bg: var(--color-espresso);
+  --button-primary-fg: var(--color-ivory);
+  --button-primary-bg-hover: var(--color-plum);
+  /* secondary: transparent with a hairline espresso outline */
+  --button-secondary-bg: transparent;
+  --button-secondary-fg: var(--color-espresso);
+  --button-secondary-border: var(--color-espresso);
+  --button-secondary-bg-hover: var(--color-blush);
+
+  /* ── Keyboard focus indicator ─────────────────────────────────────────── */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ── Breakpoints (mobile-first; base styles apply below 768px) ────────── */
+  --breakpoint-sm: initial; /* not part of the Nail Up breakpoint system */
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-espresso);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Visible keyboard focus: a ring, so it differs from default (no ring) and
+     from hover (colour shift only). */
+  :focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Disable non-essential motion when the user asks for reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0s !important;
+      animation-delay: 0s !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Refined uppercase editorial label. */
+@utility editorial-label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+/* Hairline border using the border token. */
+@utility border-hairline {
+  border: var(--border-hairline);
+}
+
+/* Shared button structure; colours come from the variant utilities below. */
+@utility button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--button-padding-block);
+  padding-inline: var(--button-padding-inline);
+  border: var(--border-width-hairline) solid var(--button-primary-bg);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  text-decoration: none;
+  cursor: pointer;
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--motion-duration);
+  transition-timing-function: var(--motion-ease);
+
+  &:hover {
+    background-color: var(--button-primary-bg-hover);
+    border-color: var(--button-primary-bg-hover);
+  }
+}
+
+@utility button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--button-padding-block);
+  padding-inline: var(--button-padding-inline);
+  border: var(--border-width-hairline) solid var(--button-secondary-border);
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-fg);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  text-decoration: none;
+  cursor: pointer;
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--motion-duration);
+  transition-timing-function: var(--motion-ease);
+
+  &:hover {
+    background-color: var(--button-secondary-bg-hover);
+  }
 }
