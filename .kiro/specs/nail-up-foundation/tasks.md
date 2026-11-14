@@ -91,7 +91,7 @@ Scope guardrails baked into every task:
   - Acceptance check: run `npm run typecheck`; observe zero errors. Confirm `types/` contains only shared type defs (no runtime code).
   - _Requirements: 4.13, 1.15_
 
-- [ ] 7. Populate the typed Business_Config
+- [x] 7. Populate the typed Business_Config
   - Create `lib/config/business.ts` populated VERBATIM from product.md: name `Nail Up`, type, location, WhatsApp `+1-6473347600` / url `https://wa.me/16473347600`, Instagram `https://www.instagram.com/nailup_/` (no params), email `prabhvirdi3011@gmail.com`, booking `/book`, currency `CAD`, timezone `America/Toronto`, and all brand copy strings.
   - Add the ordered route list: nav order `/`, `/services`, `/lookbook`, `/love-notes`, `/your-art`, `/about`, `/book`, `/contact` (`inPrimaryNav: true`), then `/privacy`, `/terms` (`inPrimaryNav: false`). Represent Unconfirmed_Fact values per the typed `UnconfirmedFact` (omit or "awaiting business confirmation").
   - Acceptance check: run `npm run typecheck`; confirm the module imports cleanly and values match product.md character-for-character (Instagram URL has no query/tracking params).
