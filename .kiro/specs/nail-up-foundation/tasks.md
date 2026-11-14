@@ -167,7 +167,7 @@ Scope guardrails baked into every task:
   - _Requirements: 5.13, 5.14_
 
 - [ ] 15. Set up Vitest testing infrastructure and initial tests
-  - [ ] 15.1 Configure Vitest + RTL + jsdom
+  - [x] 15.1 Configure Vitest + RTL + jsdom
     - Add `vitest.config.ts` (jsdom environment, `@/*` alias resolution) and `tests/setup.ts` (React Testing Library/jsdom setup). Ensure the `test` script runs `vitest --run` (single execution, not watch).
     - Acceptance check: run `npm test` (`vitest --run`); confirm Vitest executes once and exits (no watch).
     - _Requirements: 6.5, 6.7_
