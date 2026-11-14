@@ -61,26 +61,26 @@ Scope guardrails baked into every task:
 - [x] 4. Checkpoint — project boots and all config verifies
   - Ensure all tests pass, ask the user if questions arise. Run `npm run typecheck`, `npm run lint`, and `npm run dev`; confirm all succeed before building features.
 
-- [ ] 5. Declare the Editorial Beauty Experience design tokens in `app/globals.css`
-  - [ ] 5.1 Colour tokens (brand + semantic) via `@theme`
+- [x] 5. Declare the Editorial Beauty Experience design tokens in `app/globals.css`
+  - [x] 5.1 Colour tokens (brand + semantic) via `@theme`
     - In the `@theme` block declare EXACTLY eight brand colour tokens: warm ivory, milky cream, dusty rose, muted blush, deep espresso, soft plum, champagne, chrome/silver.
     - Declare SEPARATE semantic tokens (`--color-success`, `--color-error`, `--color-warning`, `--color-focus`) that do NOT count toward the eight brand colours.
     - Acceptance check: count brand colour tokens = 8; run `npm run dev` and confirm a utility (e.g. `bg-espresso`) and the matching CSS variable (`var(--color-espresso)`) resolve to the same value in devtools.
     - _Requirements: 3.1, 3.2, 3.11_
-  - [ ] 5.2 Typography tokens via `next/font` + uppercase label token
+  - [x] 5.2 Typography tokens via `next/font` + uppercase label token
     - Wire a distinct serif headline family and sans-serif body family (loaded via `next/font` in task 8, exposed as `--font-headline`/`--font-body`); reference them from `@theme` `--font-serif`/`--font-sans`.
     - Add the uppercase editorial label token: a `--tracking-label` positive letter-spacing value plus a token-backed `.editorial-label` utility applying `text-transform: uppercase` and that tracking.
     - Acceptance check: render a headline and body sample; confirm visually distinct families and that an element using the label utility is uppercase with positive letter-spacing (devtools computed style).
     - _Requirements: 3.3, 3.4_
-  - [ ] 5.3 Spacing, container-width, border/shadow/radius tokens
+  - [x] 5.3 Spacing, container-width, border/shadow/radius tokens
     - Declare a spacing scale with ≥5 strictly increasing steps; ≥1 container-width token (plus narrow/wide as designed); ≥1 border, ≥1 shadow, ≥1 radius token.
     - Acceptance check: confirm ≥5 increasing spacing values and that border/shadow/radius/container tokens exist and emit utilities (apply one of each in a scratch element in dev).
     - _Requirements: 3.5, 3.6, 3.7_
-  - [ ] 5.4 Button tokens + interactive hover/focus-visible state tokens
+  - [x] 5.4 Button tokens + interactive hover/focus-visible state tokens
     - Define primary and secondary button token treatments that are visually distinct (e.g. solid espresso vs hairline-outline). Define a hover-state token and a visible focus-visible ring token using `--color-focus`, distinguishable from both default and hover.
     - Acceptance check: render a primary and secondary button sample; Tab to focus and confirm a visible focus ring distinct from hover; hover and confirm a distinct hover treatment.
     - _Requirements: 3.8, 3.9, 5.15_
-  - [ ] 5.5 Mobile-first breakpoint tokens + global reduced-motion rule
+  - [x] 5.5 Mobile-first breakpoint tokens + global reduced-motion rule
     - Declare `--breakpoint-md/lg/xl/2xl` = 768/1024/1280/1440 px (Tailwind v4 generates `md:`/`lg:`/`xl:`/`2xl:`). Add a global `@media (prefers-reduced-motion: reduce)` rule disabling non-essential transitions/animations.
     - Confirm no hard-coded magic values are used anywhere in `globals.css` beyond permitted primitives (`0`, `100%`, basic `1px`).
     - Acceptance check: resize dev browser across 768/1024/1280/1440 and confirm breakpoint variants apply; enable OS reduced-motion and confirm transitions are disabled. Scan `globals.css` for literal hex/px magic values (should be none beyond primitives).
