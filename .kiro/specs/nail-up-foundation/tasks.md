@@ -58,7 +58,7 @@ Scope guardrails baked into every task:
     - Acceptance check: run `git check-ignore -v .env .env.local .next node_modules` (expect ignored) and `git check-ignore .env.example` (expect NOT ignored). Confirm `.env.example` contains no real values.
     - _Requirements: 1.12, 1.13, 5.10, 5.11_
 
-- [ ] 4. Checkpoint — project boots and all config verifies
+- [x] 4. Checkpoint — project boots and all config verifies
   - Ensure all tests pass, ask the user if questions arise. Run `npm run typecheck`, `npm run lint`, and `npm run dev`; confirm all succeed before building features.
 
 - [ ] 5. Declare the Editorial Beauty Experience design tokens in `app/globals.css`
