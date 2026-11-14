@@ -161,7 +161,7 @@ Scope guardrails baked into every task:
     - Acceptance check: `npm run dev`; request all ten routes and confirm each resolves without 404; deferred pages clearly show coming-soon; `/` shows confirmed editorial copy; view-source confirms per-route titles.
     - _Requirements: 4.16, 4.17_
 
-- [ ] 14. Implement app-level error boundary and not-found page
+- [x] 14. Implement app-level error boundary and not-found page
   - Create `app/error.tsx` (`"use client"` error boundary) rendering a token-styled error UI with a reset action and no leaked stack details (error-indicating state preserving valid content). Create `app/not-found.tsx` rendering a friendly, editorial-styled 404 for unknown paths.
   - Acceptance check: temporarily throw in a page to confirm `error.tsx` renders with a working reset; request an unknown path (e.g. `/nope`) and confirm `not-found.tsx` renders (known routes still resolve). Remove the temporary throw.
   - _Requirements: 5.13, 5.14_
