@@ -113,37 +113,37 @@ Scope guardrails baked into every task:
   - Acceptance check: use it to wrap sample content; confirm in devtools the rendered element carries a container-width token class/variable (not a literal width). Run `npm run typecheck`.
   - _Requirements: 4.14_
 
-- [ ] 11. Build the Application_Shell components (read from Business_Config)
-  - [ ] 11.1 AnnouncementBar (Server)
+- [x] 11. Build the Application_Shell components (read from Business_Config)
+  - [x] 11.1 AnnouncementBar (Server)
     - `components/layout/announcement-bar.tsx` renders the strip from `businessConfig.copy.announcement`, defaulting to exact text "Brampton, your next nail obsession starts here. ✦ Book your set."
     - Acceptance check: load `/`; confirm the exact announcement text renders and comes from config (no duplicated literal). Run `npm run typecheck`.
     - _Requirements: 4.2, 4.13_
-  - [ ] 11.2 Wordmark (Server)
+  - [x] 11.2 Wordmark (Server)
     - `components/layout/wordmark.tsx` renders the "Nail Up" wordmark linking to `/`, label sourced from `businessConfig.facts.name`.
     - Acceptance check: confirm the wordmark links to `/` and reads the name from config.
     - _Requirements: 4.3, 4.13_
-  - [ ] 11.3 Header (Server) with single `<header>` landmark
+  - [x] 11.3 Header (Server) with single `<header>` landmark
     - `components/layout/header.tsx` renders exactly one `<header>` composing Wordmark, MainNav, MobileNav, and BookCta.
     - Acceptance check: load `/`; confirm exactly one `<header>` in the DOM.
     - _Requirements: 4.1, 5.6_
-  - [ ] 11.4 MainNav (Server chrome) + active nav-link (Client)
+  - [x] 11.4 MainNav (Server chrome) + active nav-link (Client)
     - `components/layout/main-nav.tsx` renders inline links (one per primary-nav route in order) inside exactly one `<nav>` landmark, hidden below 768px via breakpoint tokens.
     - `components/layout/nav-link.tsx` is a minimal `"use client"` component using `usePathname()` to set `aria-current="page"` + active token treatment on the matching link; it renders INSIDE the single `<nav>` (introduces no second `<nav>`). If given an empty route list, render an explicit empty state (no crash).
     - Acceptance check: load several routes and confirm the active link gets `aria-current="page"` and active styling; confirm exactly one `<nav>` in the DOM; at ≥768px links are inline. Run `npm run typecheck`.
     - _Requirements: 4.4, 4.5, 4.7, 5.1, 5.2, 5.3, 5.6, 5.13_
-  - [ ] 11.5 BookCta (Server)
+  - [x] 11.5 BookCta (Server)
     - `components/layout/book-cta.tsx` renders a primary button labelled exactly "BOOK YOUR SET" (from `copy.primaryCta`) linking to the booking route `/book` (from `facts.bookingRoute`).
     - Acceptance check: confirm label is exactly "BOOK YOUR SET" and href is `/book`, both from config.
     - _Requirements: 4.8, 4.13_
-  - [ ] 11.6 MobileNav (Client) — toggle + menu, reduced-motion aware
+  - [x] 11.6 MobileNav (Client) — toggle + menu, reduced-motion aware
     - `components/layout/mobile-nav.tsx` (`"use client"`): below 768px hides inline links and shows a single visible toggle that opens a menu exposing ALL public-route links; manages open/close state and focus; keyboard-operable; respects `prefers-reduced-motion`. Reuses the same single `<nav>` (no second landmark).
     - Acceptance check: at <768px confirm one toggle control opens a menu with all route links; operate it via keyboard; with reduced-motion on, confirm the open/close transition is disabled. Run `npm run typecheck`.
     - _Requirements: 4.6, 5.1, 5.3, 5.6, 5.8, 5.15_
-  - [ ] 11.7 SocialLinks (Server)
+  - [x] 11.7 SocialLinks (Server)
     - `components/layout/social-links.tsx`: WhatsApp → `https://wa.me/16473347600`, Instagram → `https://www.instagram.com/nailup_/` (no query/tracking params), email → `mailto:prabhvirdi3011@gmail.com`. External links open in a new browsing context (`target="_blank"` + `rel="noopener noreferrer"`) with accessible labels ("Nail Up on WhatsApp"/"Nail Up on Instagram"). All from Business_Config.
     - Acceptance check: confirm hrefs match exactly (Instagram has no params), external links use new-context + accessible labels, email uses `mailto:`.
     - _Requirements: 4.10, 4.11, 4.12, 4.13_
-  - [ ] 11.8 Footer (Server) with single `<footer>` landmark
+  - [x] 11.8 Footer (Server) with single `<footer>` landmark
     - `components/layout/footer.tsx` renders exactly one `<footer>` with one link to EACH of the ten public routes (incl. `/privacy` and `/terms`) plus SocialLinks. OMITS Unconfirmed_Facts (address/hours) rather than fabricating them.
     - Acceptance check: load `/`; confirm all ten route links and the three social links render; confirm no fabricated address/hours; exactly one `<footer>`.
     - _Requirements: 4.9, 4.13, 4.15, 5.6_
