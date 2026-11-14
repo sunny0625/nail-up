@@ -86,7 +86,7 @@ Scope guardrails baked into every task:
     - Acceptance check: resize dev browser across 768/1024/1280/1440 and confirm breakpoint variants apply; enable OS reduced-motion and confirm transitions are disabled. Scan `globals.css` for literal hex/px magic values (should be none beyond primitives).
     - _Requirements: 3.10, 3.12, 3.13, 3.14, 5.8_
 
-- [ ] 6. Define shared Business types
+- [x] 6. Define shared Business types
   - Create `types/business.ts` with `PublicRoute`, `BusinessFacts`, `BrandCopy`, `UnconfirmedFact`, and `BusinessConfig` interfaces exactly as designed (readonly fields; `UnconfirmedFact` with `status: "awaiting-business-confirmation"`).
   - Acceptance check: run `npm run typecheck`; observe zero errors. Confirm `types/` contains only shared type defs (no runtime code).
   - _Requirements: 4.13, 1.15_
