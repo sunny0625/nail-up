@@ -194,7 +194,7 @@ Scope guardrails baked into every task:
   - Acceptance check: `npm run dev`; count landmarks (one each) via devtools/a11y tree; Tab through all interactive elements confirming visible focus; open/close the mobile menu via keyboard; toggle OS reduced-motion and confirm non-essential motion stops.
   - _Requirements: 4.6, 4.7, 5.6, 5.8, 5.15_
 
-- [ ] 18. Final verification and README
+- [x] 18. Final verification and README
   - Run the full suite and ensure all pass on the error-free Foundation: `npm run typecheck` (`tsc --noEmit`), `npm run lint` (`eslint .`), `npm test` (`vitest --run`), and `npm run build` (`next build`).
   - Update (extend, not overwrite) `README.md` to document: project purpose; prerequisites (Node version, package manager); setup steps (clone, install, copy `.env.example` → `.env.local`, run dev); runnable commands (`dev`, `build`, `start`, `lint`, `typecheck`, `test`); conventions (English Canadian spelling, Server Components by default, naming convention, no-magic-values/token rule); and the architecture note documenting each top-level directory's responsibility and the Root_Layout vs `(public)` boundary (with the reserved admin boundary).
   - Acceptance check: all four commands exit 0 with no errors; open `README.md` and confirm every top-level directory has a documented responsibility and the layout boundary is described.
