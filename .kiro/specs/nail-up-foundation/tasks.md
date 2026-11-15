@@ -175,7 +175,7 @@ Scope guardrails baked into every task:
     - `tests/business-config.test.ts` asserts confirmed facts/copy are exact: WhatsApp URL `https://wa.me/16473347600`, Instagram `https://www.instagram.com/nailup_/` (no params), email `prabhvirdi3011@gmail.com`, default announcement text, primary CTA `BOOK YOUR SET`, and the nav route order.
     - Acceptance check: run `vitest --run`; test passes and guards against fabricated/typo'd confirmed facts.
     - _Requirements: 6.6_
-  - [ ]* 15.3 Footer render test
+  - [x]* 15.3 Footer render test
     - `tests/footer.test.tsx` renders `Footer` and asserts links to all ten public routes (incl. `/privacy`, `/terms`) and the WhatsApp/Instagram/email links with correct `href` and accessible labels.
     - Acceptance check: run `vitest --run`; test passes.
     - _Requirements: 6.6_
