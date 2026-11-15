@@ -189,7 +189,7 @@ Scope guardrails baked into every task:
   - Acceptance check: `npm run dev`; using browser devtools responsive mode, check each of the eight widths and record no horizontal scroll and no overlap/clipping; confirm nav mode switches at the 768px boundary.
   - _Requirements: 3.10, 4.6, 4.7, 5.5, 5.7_
 
-- [ ] 17. Accessibility and reduced-motion verification
+- [x] 17. Accessibility and reduced-motion verification
   - Verify the public shell has EXACTLY ONE each of `<header>`, `<nav>`, `<main>`, `<footer>`. Verify every interactive element shows a visible keyboard focus indicator; the mobile menu is fully keyboard-operable; `prefers-reduced-motion` disables non-essential motion; and a descriptive `alt` text pattern is established for images. Fix any issues found.
   - Acceptance check: `npm run dev`; count landmarks (one each) via devtools/a11y tree; Tab through all interactive elements confirming visible focus; open/close the mobile menu via keyboard; toggle OS reduced-motion and confirm non-essential motion stops.
   - _Requirements: 4.6, 4.7, 5.6, 5.8, 5.15_
