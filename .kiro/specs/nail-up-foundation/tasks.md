@@ -148,7 +148,7 @@ Scope guardrails baked into every task:
     - Acceptance check: load `/`; confirm all ten route links and the three social links render; confirm no fabricated address/hours; exactly one `<footer>`.
     - _Requirements: 4.9, 4.13, 4.15, 5.6_
 
-- [ ] 12. Checkpoint — shell renders end-to-end
+- [x] 12. Checkpoint — shell renders end-to-end
   - Ensure all tests pass, ask the user if questions arise. Load `/` via `npm run dev` and confirm AnnouncementBar + Header (one `<header>`, one `<nav>`) + one `<main>` + Footer all render from Business_Config.
 
 - [x] 13. Implement public route placeholders and per-route metadata
