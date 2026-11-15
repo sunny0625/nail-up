@@ -184,7 +184,7 @@ Scope guardrails baked into every task:
     - Acceptance check: run `vitest --run`; test passes.
     - _Requirements: 6.6_
 
-- [ ] 16. Responsive verification across the eight Viewport_Set widths
+- [x] 16. Responsive verification across the eight Viewport_Set widths
   - Verify the rendered shell at 375 / 390 / 430 / 768 / 1024 / 1280 / 1440 / 1920 px: no horizontal scrolling; no overlapping or clipped interactive elements. Confirm desktop inline nav at ≥768px and the single mobile toggle at <768px. Fix any token/layout issues found (adjust `globals.css` tokens or component classes only).
   - Acceptance check: `npm run dev`; using browser devtools responsive mode, check each of the eight widths and record no horizontal scroll and no overlap/clipping; confirm nav mode switches at the 768px boundary.
   - _Requirements: 3.10, 4.6, 4.7, 5.5, 5.7_
