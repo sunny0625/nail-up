@@ -179,7 +179,7 @@ Scope guardrails baked into every task:
     - `tests/footer.test.tsx` renders `Footer` and asserts links to all ten public routes (incl. `/privacy`, `/terms`) and the WhatsApp/Instagram/email links with correct `href` and accessible labels.
     - Acceptance check: run `vitest --run`; test passes.
     - _Requirements: 6.6_
-  - [ ]* 15.4 PageContainer token test
+  - [x]* 15.4 PageContainer token test
     - `tests/page-container.test.tsx` renders `PageContainer` and asserts it applies a container-width token class (not a hard-coded width).
     - Acceptance check: run `vitest --run`; test passes.
     - _Requirements: 6.6_
