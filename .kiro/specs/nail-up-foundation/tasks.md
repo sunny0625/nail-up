@@ -171,7 +171,7 @@ Scope guardrails baked into every task:
     - Add `vitest.config.ts` (jsdom environment, `@/*` alias resolution) and `tests/setup.ts` (React Testing Library/jsdom setup). Ensure the `test` script runs `vitest --run` (single execution, not watch).
     - Acceptance check: run `npm test` (`vitest --run`); confirm Vitest executes once and exits (no watch).
     - _Requirements: 6.5, 6.7_
-  - [ ]* 15.2 Business_Config exact-values test
+  - [x]* 15.2 Business_Config exact-values test
     - `tests/business-config.test.ts` asserts confirmed facts/copy are exact: WhatsApp URL `https://wa.me/16473347600`, Instagram `https://www.instagram.com/nailup_/` (no params), email `prabhvirdi3011@gmail.com`, default announcement text, primary CTA `BOOK YOUR SET`, and the nav route order.
     - Acceptance check: run `vitest --run`; test passes and guards against fabricated/typo'd confirmed facts.
     - _Requirements: 6.6_
